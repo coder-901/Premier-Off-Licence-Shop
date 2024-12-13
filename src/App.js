@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Navigation from "./Navigation/Nav";
 import Products from "./Products/Products";
@@ -6,10 +6,18 @@ import products from "./db/data";
 import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
+import Header from "./components/Header";
+import Footer from "./components/Footer"; // Import the Footer component
 import "./index.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const footerRef = useRef(null); // Create a reference to the Footer component
+
+  // Function to scroll to the footer
+  const scrollToFooter = () => {
+    footerRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // ----------- Input Filter -----------
   const [query, setQuery] = useState("");
@@ -70,12 +78,18 @@ function App() {
   const result = filteredData(products, selectedCategory, query);
 
   return (
-    <>
-      <Sidebar handleChange={handleChange} />
-      <Navigation query={query} handleInputChange={handleInputChange} />
-      <Recommended handleClick={handleClick} />
-      <Products result={result} />
-    </>
+    <div className="App">
+      <Header scrollToFooter={scrollToFooter} /> {/* Pass the scroll function to Header */}
+      <div className="content">
+        <Sidebar handleChange={handleChange} />
+        <main>
+          <Navigation query={query} handleInputChange={handleInputChange} />
+          <Recommended handleClick={handleClick} />
+          <Products result={result} />
+        </main>
+      </div>
+      <Footer ref={footerRef} /> {/* Attach the reference to Footer */}
+    </div>
   );
 }
 

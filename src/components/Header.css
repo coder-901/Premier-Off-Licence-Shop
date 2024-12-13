@@ -1,0 +1,77 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8; /* Adjust as needed */
+  border-bottom: 1px solid #ddd; /* Optional: Add a border at the bottom */
+}
+
+.logo h1 {
+  margin: 20px;
+  font-size: 24px;
+}
+
+.nav-toggle {
+  display: none;
+  position: absolute;
+  top: 15px; 
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav ul li {
+  margin-left: 20px;
+}
+
+.header-nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.header-nav ul li a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index: 10;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav ul li {
+    margin: 10px 0;
+  }
+}

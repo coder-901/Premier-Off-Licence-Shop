@@ -1,11 +1,11 @@
 nav {
     display: flex;
     border-bottom: 2px solid #f3f3f3;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     z-index: 999;
-    margin-left: 2rem;
+    margin-left: auto;
   }
   
   input {
@@ -23,4 +23,46 @@ nav {
     width: 1.5rem;
     height: 1.5rem;
     margin-left: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      margin-top: 0;
+    }
+  
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .nav-icons {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    nav {
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+      padding: 10px; /* Adjust padding as needed */
+      margin-top: 0; /* Remove any top margin */
+    }
+  
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+      margin-top: 10px;
+    }
+  
+    .nav-icons {
+      margin-left: 0;
+      margin-top: 10px;
+    }
   }

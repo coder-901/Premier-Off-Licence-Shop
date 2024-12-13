@@ -24,3 +24,93 @@ li {
   color: #323232;
   cursor: pointer;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: row; /* Place sidebar and main content side by side */
+  flex: 1;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+
+  nav{
+    width: 100%;
+    margin-top: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-content div {
+    margin: 10px 0;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0; /* Remove any bottom margin */
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 0; /* Remove any top margin */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .products .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
