@@ -7,9 +7,9 @@ const Footer = React.forwardRef((props, ref) => {
       <div className="footer-content">
         <div className="contact-details">
           <h3>Contact Us</h3>
-          <p>Email: contact@offlicenceshop.com</p>
-          <p>Phone: +123 456 7890</p>
-          <p>Address: 123 Main Street, City, Country</p>
+          <p>Email: emailid@gmail.com</p>
+          <p>Phone: +44 7462 806652</p>
+          <p>Address: Store name, England, United Kingdom</p>
         </div>
         <div className="social-media">
           <h3>Follow Us</h3>
@@ -21,7 +21,8 @@ const Footer = React.forwardRef((props, ref) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2023 Off-Licence Shop. All rights reserved.</p>
+        <p>&copy; 2024 Off-Licence Shop. All rights reserved.</p>
+        <p>Author: Tarun Kumar</p>
       </div>
     </footer>
   );

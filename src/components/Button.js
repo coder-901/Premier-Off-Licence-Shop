@@ -5,5 +5,5 @@ const Button = ({ onClickHandler, value, title }) => {
       </button>
     );
   };
-  
+
   export default Button;

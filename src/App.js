@@ -7,14 +7,13 @@ import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
 import Header from "./components/Header";
-import Footer from "./components/Footer"; // Import the Footer component
+import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const footerRef = useRef(null); // Create a reference to the Footer component
+  const footerRef = useRef(null);
 
-  // Function to scroll to the footer
   const scrollToFooter = () => {
     footerRef.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -79,7 +78,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header scrollToFooter={scrollToFooter} /> {/* Pass the scroll function to Header */}
+      <Header scrollToFooter={scrollToFooter} /> {}
       <div className="content">
         <Sidebar handleChange={handleChange} />
         <main>
@@ -88,7 +87,7 @@ function App() {
           <Products result={result} />
         </main>
       </div>
-      <Footer ref={footerRef} /> {/* Attach the reference to Footer */}
+      <Footer ref={footerRef} /> {}
     </div>
   );
 }

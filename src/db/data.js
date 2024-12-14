@@ -2,15 +2,15 @@ import { AiFillStar } from "react-icons/ai";
 
 const data = [
   {
-    img: "https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg",
-    title: "Nike Air Monarch IV",
+    img: require("./images/spirits/vodka_1.png").default,
+    title: "Founding Spirits Vodka",
     star: <AiFillStar className="rating-star" />,
-    reviews: "(123 reviews)",
-    prevPrice: "$140,00",
-    newPrice: "200",
+    reviews: "(13 reviews)",
+    prevPrice: "$40",
+    newPrice: "$36",
     company: "Nike",
-    color: "white",
-    category: "sneakers",
+    color: "blue",
+    category: "spirits",
   },
   {
     img: "https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg",
@@ -21,7 +21,7 @@ const data = [
     newPrice: "200",
     company: "Nike",
     color: "red",
-    category: "sneakers",
+    category: "spirits",
   },
 
   {
@@ -33,7 +33,7 @@ const data = [
     newPrice: "200",
     company: "Nike",
     color: "green",
-    category: "sneakers",
+    category: "spirits",
   },
   {
     img: "https://m.media-amazon.com/images/I/71oEKkghg-L._AC_UX575_.jpg",
@@ -44,7 +44,7 @@ const data = [
     newPrice: "200",
     company: "Adidas",
     color: "black",
-    category: "sneakers",
+    category: "spirits",
   },
   {
     img: "https://m.media-amazon.com/images/I/41M54ztS6IL._AC_SY625._SX._UX._SY._UY_.jpg",
