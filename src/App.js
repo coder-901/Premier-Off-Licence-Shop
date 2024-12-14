@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
 import Navigation from "./Navigation/Nav";
 import Products from "./Products/Products";
@@ -12,10 +12,12 @@ import "./index.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedPriceRange, setSelectedPriceRange] = useState("all");
+
   const footerRef = useRef(null);
 
   const scrollToFooter = () => {
-    footerRef.current.scrollIntoView({ behavior: 'smooth' });
+    footerRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   // ----------- Input Filter -----------
@@ -31,7 +33,11 @@ function App() {
 
   // ----------- Radio Filtering -----------
   const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
+    if (event.target.name === "price") {
+      setSelectedPriceRange(event.target.value);
+    } else {
+      setSelectedCategory(event.target.value);
+    }
   };
 
   // ------------ Button Filtering -----------
@@ -39,7 +45,7 @@ function App() {
     setSelectedCategory(event.target.value);
   };
 
-  function filteredData(products, selected, query) {
+  function filteredData(products, selected, query, priceRange) {
     let filteredProducts = products;
 
     // Filtering Input Items
@@ -59,6 +65,18 @@ function App() {
       );
     }
 
+    // Applying price range filter
+    if (priceRange !== "all") {
+      filteredProducts = filteredProducts.filter((product) => {
+        const price = parseFloat(product.newPrice.replace("$", ""));
+        if (priceRange === "0-10") return price >= 0 && price <= 10;
+        if (priceRange === "10-20") return price > 10 && price <= 20;
+        if (priceRange === "20-30") return price > 20 && price <= 30;
+        if (priceRange === "30+") return price > 30;
+        return true;
+      });
+    }
+
     return filteredProducts.map(
       ({ img, title, star, reviews, prevPrice, newPrice }) => (
         <Card
@@ -74,11 +92,11 @@ function App() {
     );
   }
 
-  const result = filteredData(products, selectedCategory, query);
+  const result = filteredData(products, selectedCategory, query, selectedPriceRange);
 
   return (
     <div className="App">
-      <Header scrollToFooter={scrollToFooter} /> {}
+      <Header scrollToFooter={scrollToFooter}/>
       <div className="content">
         <Sidebar handleChange={handleChange} />
         <main>
@@ -87,7 +105,7 @@ function App() {
           <Products result={result} />
         </main>
       </div>
-      <Footer ref={footerRef} /> {}
+      <Footer ref={footerRef}/>
     </div>
   );
 }

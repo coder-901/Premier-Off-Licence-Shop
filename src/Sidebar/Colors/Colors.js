@@ -44,6 +44,14 @@ const Colors = ({ handleChange }) => {
           color="green"
         />
 
+        <Input
+          handleChange={handleChange}
+          value="yellow"
+          title="Yellow"
+          name="test1"
+          color="yellow"
+        />
+
         <label className="sidebar-label-container">
           <input
             onChange={handleChange}

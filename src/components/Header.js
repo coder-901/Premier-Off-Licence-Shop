@@ -11,7 +11,7 @@ const Header = ({scrollToFooter}) => {
   return (
     <header className="header">
       <div className="logo">
-        <h1>Shop</h1>
+        <h1>Off Licence Store</h1>
       </div>
       <button className="nav-toggle" onClick={toggleNav}>
         ☰
